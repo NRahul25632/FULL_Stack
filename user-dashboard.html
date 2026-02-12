@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard - Attendance Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="user-dashboard">
+    <!-- Header -->
+    <header class="user-header">
+        <div class="header-left">
+            <div class="logo">
+                <i class="fas fa-clock"></i>
+                <h1>Attendance<span>Pro</span></h1>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <h3>John Doe</h3>
+                    <p>Employee ID: EMP2023001</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div class="notification-icon">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count">2</span>
+                </div>
+                <a href="index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="user-main">
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <div class="welcome-content">
+                <h2>Welcome back, John!</h2>
+                <p>Here's your attendance summary for today</p>
+                <div class="current-time" id="currentTime"></div>
+            </div>
+            <div class="attendance-status">
+                <div class="status-card">
+                    <h3>Today's Status</h3>
+                    <div class="status-indicator present">
+                        <i class="fas fa-user-check"></i>
+                        <span>Present</span>
+                    </div>
+                    <p class="check-in-time">Checked in: 8:45 AM</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Attendance Actions -->
+        <section class="attendance-actions">
+            <div class="action-card">
+                <h3>Check In/Out</h3>
+                <p>Record your attendance</p>
+                <div class="action-buttons">
+                    <button class="btn-action check-in" id="checkInBtn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Check In</span>
+                    </button>
+                    <button class="btn-action check-out" id="checkOutBtn" disabled>
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Check Out</span>
+                    </button>
+                </div>
+                <div class="action-info">
+                    <p><i class="fas fa-map-marker-alt"></i> Location: Office Main Gate</p>
+                    <p><i class="fas fa-wifi"></i> IP: 192.168.1.105</p>
+                </div>
+            </div>
+
+            <div class="action-card">
+                <h3>Quick Leave Request</h3>
+                <p>Apply for leave quickly</p>
+                <form class="leave-form">
+                    <div class="form-group">
+                        <label for="leaveType">Leave Type</label>
+                        <select id="leaveType">
+                            <option>Sick Leave</option>
+                            <option>Casual Leave</option>
+                            <option>Earned Leave</option>
+                            <option>Emergency Leave</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="leaveDate">Date</label>
+                        <input type="date" id="leaveDate">
+                    </div>
+                    <button type="submit" class="btn-action submit-leave">
+                        <i class="fas fa-paper-plane"></i> Submit Request
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Attendance Summary -->
+        <section class="summary-section">
+            <div class="summary-card">
+                <h3>This Month Summary</h3>
+                <div class="summary-stats">
+                    <div class="summary-item">
+                        <div class="summary-icon present">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="summary-details">
+                            <h4>Days Present</h4>
+                            <p class="summary-number">18</p>
+                        </div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-icon absent">
+                            <i class="fas fa-calendar-times"></i>
+                        </div>
+                        <div class="summary-details">
+                            <h4>Days Absent</h4>
+                            <p class="summary-number">2</p>
+                        </div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-icon leave">
+                            <i class="fas fa-umbrella-beach"></i>
+                        </div>
+                        <div class="summary-details">
+                            <h4>Leaves Taken</h4>
+                            <p class="summary-number">3</p>
+                        </div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-icon late">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="summary-details">
+                            <h4>Late Arrivals</h4>
+                            <p class="summary-number">1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <h3>Leave Balance</h3>
+                <div class="leave-balance">
+                    <div class="leave-type">
+                        <h4>Sick Leave</h4>
+                        <div class="leave-bar">
+                            <div class="leave-progress" style="width: 60%"></div>
+                        </div>
+                        <p>6 of 10 days remaining</p>
+                    </div>
+                    <div class="leave-type">
+                        <h4>Casual Leave</h4>
+                        <div class="leave-bar">
+                            <div class="leave-progress" style="width: 40%"></div>
+                        </div>
+                        <p>4 of 10 days remaining</p>
+                    </div>
+                    <div class="leave-type">
+                        <h4>Earned Leave</h4>
+                        <div class="leave-bar">
+                            <div class="leave-progress" style="width: 80%"></div>
+                        </div>
+                        <p>16 of 20 days remaining</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activity & Calendar -->
+        <section class="activity-calendar">
+            <div class="recent-activity">
+                <h3>Recent Activity</h3>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="activity-details">
+                            <h4>Leave Approved</h4>
+                            <p>Your sick leave for Nov 15 has been approved</p>
+                            <span class="activity-time">Yesterday</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="activity-details">
+                            <h4>Late Arrival</h4>
+                            <p>You were 15 minutes late on November 10</p>
+                            <span class="activity-time">3 days ago</span>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-file-export"></i>
+                        </div>
+                        <div class="activity-details">
+                            <h4>Report Generated</h4>
+                            <p>October attendance report has been generated</p>
+                            <span class="activity-time">1 week ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="attendance-calendar">
+                <h3>November 2023</h3>
+                <div class="calendar">
+                    <div class="calendar-header">
+                        <div class="day">Sun</div>
+                        <div class="day">Mon</div>
+                        <div class="day">Tue</div>
+                        <div class="day">Wed</div>
+                        <div class="day">Thu</div>
+                        <div class="day">Fri</div>
+                        <div class="day">Sat</div>
+                    </div>
+                    <div class="calendar-dates">
+                        <!-- Calendar dates will be generated by JavaScript -->
+                    </div>
+                </div>
+                <div class="calendar-legend">
+                    <div class="legend-item">
+                        <span class="legend-color present"></span>
+                        <span>Present</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color absent"></span>
+                        <span>Absent</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color holiday"></span>
+                        <span>Holiday</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-color leave"></span>
+                        <span>Leave</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section class="quick-links">
+            <h3>Quick Links</h3>
+            <div class="links-grid">
+                <a href="#" class="link-card">
+                    <i class="fas fa-history"></i>
+                    <span>Attendance History</span>
+                </a>
+                <a href="#" class="link-card">
+                    <i class="fas fa-file-alt"></i>
+                    <span>My Reports</span>
+                </a>
+                <a href="#" class="link-card">
+                    <i class="fas fa-calendar-plus"></i>
+                    <span>Apply Leave</span>
+                </a>
+                <a href="#" class="link-card">
+                    <i class="fas fa-user-edit"></i>
+                    <span>Update Profile</span>
+                </a>
+                <a href="#" class="link-card">
+                    <i class="fas fa-question-circle"></i>
+                    <span>Help & Support</span>
+                </a>
+                <a href="#" class="link-card">
+                    <i class="fas fa-download"></i>
+                    <span>Download App</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
